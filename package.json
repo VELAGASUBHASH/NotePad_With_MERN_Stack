@@ -1,0 +1,21 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix Server && npm install --prefix Client && npm run build --prefix Client",
+    "start": "npm start --prefix Server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VELAGASUBHASH/NotePad_With_MERN_Stack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VELAGASUBHASH/NotePad_With_MERN_Stack/issues"
+  },
+  "homepage": "https://github.com/VELAGASUBHASH/NotePad_With_MERN_Stack#readme",
+  "description": ""
+}

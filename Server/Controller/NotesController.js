@@ -48,7 +48,7 @@ export async function updateNotes(req,res){
         res.status(500).json({message:"Internal Server Error"});
     }
 }
-export async function delteteNotes(req,res){
+export async function deleteNotes(req,res){
     try {
         const delteteNotes = await Note.findByIdAndDelete(req.params.id);
         if(!delteteNotes) return res.status(404).json({message:"Note Not Found"})
