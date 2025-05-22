@@ -4,11 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import NotesRoutes from './Routes/NotesRoutes.js';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 
 dotenv.config();
@@ -23,27 +19,14 @@ app.use(express.json());
 //   next();
 // });
 
-if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
       origin: "http://localhost:5173",
     })
   );
-}
-
-// app.use((req,res,next)=>{
-//     console.log(`Req Method is ${req.method} And Url is ${req.url}`);
-// });
 
 app.use("/notes", NotesRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../Client/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Client", "dist", "index.html"));
-  });
-}
 
 
 mongoose.connect(process.env.MONGO_URI)
